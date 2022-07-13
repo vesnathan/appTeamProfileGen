@@ -2,6 +2,7 @@ const Employee = require("./lib/Employee.js");
 const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern");
+const inquirer = require("inquirer");
 
 let nathan = new Employee("Nathan",2,"vesnathan@gmail.com");
 
@@ -11,25 +12,66 @@ let alice = new Engineer("aliceGithug","Alice",2,"alice@gmail.com");
 
 let bob = new Intern("Some School","Bob",2,"bob@gmail.com");
 
-console.log(nathan.getName());
-console.log(nathan.getId());
-console.log(nathan.getEmail());
-console.log(" ");
+let questionsToAsk = [];
 
-console.log(timmy.getName());
-console.log(timmy.getId());
-console.log(timmy.getEmail());
-console.log(timmy.getOfficeNumber());
-console.log(" ");
+let mainQuestions = [{
+        type:       'input',
+        message:    'Name: ',
+        name:       'username',
+    },
+    {
+        type:       'input',
+        message:    'Employee ID: ',
+        name:       'id',
+    },
+    {
+        type:       'input',
+        message:    'Email Address: ',
+        name:       'email',
+    }
+];
 
-console.log(alice.getName());
-console.log(alice.getId());
-console.log(alice.getEmail());
-console.log(alice.getGithub());
-console.log(" ");
 
-console.log(bob.getName());
-console.log(bob.getId());
-console.log(bob.getEmail());
-console.log(bob.getSchool());
-console.log(" ");
+let managerQuestions = [{
+    type:       'input',
+    message:    'Office Number: ',
+    name:       'number',
+},
+{
+    type:       'checkbox',
+    message:    'Office Number: ',
+    name:       'number',   
+}];
+let engineerQuestions = [{
+    type:       'input',
+    message:    'Github Username: ',
+    name:       'github',
+}];
+let internQuestions = [{
+    type:       'input',
+    message:    'School: ',
+    name:       'school',
+}];
+
+function getmanagerDetails() {
+    console.clear();
+    console.log("MANAGER DETAILS");
+    questionsToAsk = [...mainQuestions, ...managerQuestions];
+    inquirer.prompt(questionsToAsk);
+}
+function getEngineerDetails() {
+    console.clear();
+    console.log("ENGINEER DETAILS");
+    questionsToAsk = [...mainQuestions, ...engineerQuestions];
+}
+function getInternDetails() { 
+    console.clear();
+    console.log("INTERN DETAILS");
+    questionsToAsk = [...mainQuestions, ...internQuestions];
+}
+
+
+getmanagerDetails();
+
+
+
