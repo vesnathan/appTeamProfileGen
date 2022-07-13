@@ -1,7 +1,9 @@
 const Employee = require("./lib/Employee.js");
 const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
-const Intern = require("./lib/Intern");
+const Intern = require("./lib/Intern.js");
+const {mainHtml} = require("./src/template.js");
+const Renderer = require("./dist/render.js");
 const inquirer = require("inquirer");
 const { getConsoleOutput } = require("@jest/console");
 
@@ -39,7 +41,13 @@ function printPage() {
     .then((response) => {
         switch (response.print) {
             case "Yes":
-                console.log(myEmployees);
+                let myPageRender = new Renderer();
+                myPageRender.setMainHtml(mainHtml);
+                myPageRender.setFileName("./employees.html");
+                myEmployees.forEach((employee) => {
+                    myPageRender.addCard(employee);
+                });
+                myPageRender.render();
                 break;
             case "No":            
                 console.log(myEmployees);
@@ -48,7 +56,6 @@ function printPage() {
                 printPage();
             break;
         }
-        console.log(myEmployees);
     });
 }
 function getmanagerDetails() {
@@ -60,7 +67,7 @@ function getmanagerDetails() {
     console.clear();
     console.log("MANAGER DETAILS");
     questionsToAsk = [...mainQuestions, ...managerQuestions];
-    inquirer.prompt(questionsToAsk).then((response) => { 
+    inquirer.prompt(questionsToAsk).then((response) => {
         myEmployees.push(new Manager(response.number,response.name,response.id,response.email)); 
         menu();
     });
