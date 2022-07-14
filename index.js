@@ -2,7 +2,7 @@ const Employee = require("./lib/Employee.js");
 const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
-const {mainHtml} = require("./src/template.js");
+const mainHtml = require("./src/template.js");
 const Renderer = require("./dist/render.js");
 const inquirer = require("inquirer");
 const { getConsoleOutput } = require("@jest/console");
@@ -28,7 +28,9 @@ let mainQuestions = [{
 ];
 
 let myEmployees = [];
+
 let data = [];
+
 function printPage() {
     console.clear();
     console.log("EXIT");

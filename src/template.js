@@ -43,4 +43,4 @@ let mainHtml = `
 
 
 
-module.exports = {mainHtml}
+module.exports = mainHtml;
