@@ -20,7 +20,7 @@ class Renderer {
                     <div class="card-body">
                         <h5 class="card-title">${cardData.name}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">${cardData.constructor.name}</h6>
-                        <p class="card-text">ID: ${cardData.id}</p>
+                        <p class="card-text">Employee ID: ${cardData.id}</p>
                         <p class="card-text">Email: <a href="mailto:${cardData.email}" class="card-link">${cardData.email}</a></p>`;
                         if (cardData.hasOwnProperty("github")) {
                             this.finalCardHtml += `<p class="card-text">Github User: <a href="https://github.com/${cardData.github}" class="card-link">Github Profile</a></p>`;
