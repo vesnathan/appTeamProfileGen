@@ -41,7 +41,8 @@
 <a id="USAGE"></a>
 ## USAGE
 
-    from the folder with the files in, run  
+    from the folder with the files in, run 
+    npm install 
     node index.js 
 
 <a id="CONTRIBUTE"></a>
