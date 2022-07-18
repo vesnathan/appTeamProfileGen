@@ -1,11 +1,9 @@
-const Employee = require("./lib/Employee.js");
 const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const mainHtml = require("./src/template.js");
 const Renderer = require("./dist/render.js");
 const inquirer = require("inquirer");
-const { getConsoleOutput } = require("@jest/console");
 
 
 let questionsToAsk = [];
@@ -49,7 +47,7 @@ function printPage() {
                 myEmployees.forEach((employee) => {
                     myPageRender.addCard(employee);
                 });
-                myPageRender.render();
+                myPageRender.render({test: false});
                 break;
             case "No":            
                 console.log(myEmployees);
@@ -60,7 +58,8 @@ function printPage() {
         }
     });
 }
-function getmanagerDetails() {
+
+function getManagerDetails() {
     let managerQuestions = [{
         type:       'input',
         message:    'Office Number: ',
@@ -69,12 +68,13 @@ function getmanagerDetails() {
     console.clear();
     console.log("MANAGER DETAILS");
     questionsToAsk = [...mainQuestions, ...managerQuestions];
-    inquirer.prompt(questionsToAsk).then((response) => {
+    inquirer.prompt(questionsToAsk)
+    .then((response) => {
         myEmployees.push(new Manager(response.number,response.name,response.id,response.email)); 
         menu();
     });
-
 }
+
 function menu() {
     let menuQuestions = [{ 
         type: "checkbox", 
@@ -88,7 +88,8 @@ function menu() {
     }];
     console.clear();
     console.log("MAIN MENU");
-    inquirer.prompt(...menuQuestions).then((response) => { 
+    inquirer.prompt(...menuQuestions)
+    .then((response) => { 
         data.push(response);
         switch (response.type[0]) {
             case "intern":
@@ -116,7 +117,8 @@ function getEngineerDetails() {
     console.clear();
     console.log("ENGINEER DETAILS");
     questionsToAsk = [...mainQuestions, ...engineerQuestions];
-    inquirer.prompt(questionsToAsk).then((response) => {   
+    inquirer.prompt(questionsToAsk)
+    .then((response) => {   
         myEmployees.push(new Engineer(response.github,response.name,response.id,response.email));
         menu();
     });
@@ -130,14 +132,15 @@ function getInternDetails() {
     console.clear();
     console.log("INTERN DETAILS");
     questionsToAsk = [...mainQuestions, ...internQuestions];
-    inquirer.prompt(questionsToAsk).then((response) => {
+    inquirer.prompt(questionsToAsk)
+    .then((response) => {
         myEmployees.push(new Intern(response.school,response.name,response.id,response.email));
         menu();
     });
 }
 
 
-getmanagerDetails();
+getManagerDetails();
 
 
 
