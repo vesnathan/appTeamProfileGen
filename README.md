@@ -53,7 +53,9 @@
 <a id="TESTS"></a>
 ## TESTS
 
-    uses jest
+    uses jest  
+  
+    from the folder with the files in, run 
     run npm test
 
 <a id="LICENCE"></a>
