@@ -2,7 +2,7 @@ const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const mainHtml = require("./src/template.js");
-const Renderer = require("./dist/render.js");
+const Renderer = require("./dist/Renderer.js");
 const inquirer = require("inquirer");
 
 
@@ -34,7 +34,7 @@ function printPage() {
     console.log("EXIT");
     inquirer.prompt({
         type:       'list',
-        message:    'Viw Page: ',
+        message:    'View Page: ',
         name:       'print',
         choices: ['Yes', 'No']
     })
@@ -47,7 +47,7 @@ function printPage() {
                 myEmployees.forEach((employee) => {
                     myPageRender.addCard(employee);
                 });
-                myPageRender.render({test: false});
+                myPageRender.render();
                 break;
             case "No":            
                 console.log(myEmployees);

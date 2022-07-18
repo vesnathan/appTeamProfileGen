@@ -25,16 +25,20 @@ let mainHtml = `
         font-weight: bold;
     }
     .card {
-        width: 18rem;
         height: 18rem;
+    }
+    .card-head {
+        background: rgb(77, 77, 255);
+        color: #ffffff;
+        margin: 0;
     }
 </style>
 </head>
 <body class="d-flex flex-wrap col-12 p-5 justify-content-center">
-    <header class="d-flex col-8 col-sm-10 col-lg-8 p-5 justify-content-center">My Team</header>
+    <header class="d-flex col-12 col-sm-10 p-5 justify-content-center">My Team</header>
     <section 
         id="mainWrapper"
-        class="d-flex flex-wrap col-12 col-sm-10 col-lg-8 p-5  justify-content-around">
+        class="d-flex flex-wrap col-12 col-sm-10 p-5  justify-content-around">
 <CARDS>
     </section>  
 </body>

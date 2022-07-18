@@ -17,20 +17,22 @@ class Renderer {
         }
         this.addCard = (cardData) => {
             this.finalCardHtml += `
-                <div class="card col-3 m-1">
-                    <div class="card-body">
+                <div class="card col-3 m-1 p-0">
+                    <div class="card-head p-2">
                         <h5 class="card-title">${cardData.name}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">${cardData.constructor.name}</h6>
+                        <h6 class="card-subtitle mb-2">${cardData.constructor.name}</h6>
+                    </div>
+                    <div class="card-body">
                         <p class="card-text">Employee ID: ${cardData.id}</p>
-                        <p class="card-text">Email: <a href="mailto:${cardData.email}" class="card-link">${cardData.email}</a></p>`;
+                        <p class="card-text">Email: <br><a href="mailto:${cardData.email}" class="card-link">${cardData.email}</a></p>`;
                         if (cardData.hasOwnProperty("github")) {
-                            this.finalCardHtml += `<p class="card-text">Github User: <a href="https://github.com/${cardData.github}" class="card-link">Github Profile</a></p>`;
+                            this.finalCardHtml += `<p class="card-text">Github User: <br><a href="https://github.com/${cardData.github}" class="card-link">Github Profile</a></p>`;
                         }
                         if (cardData.hasOwnProperty("officeNumber")) {
-                            this.finalCardHtml += `<p class="card-text">Office Number: ${cardData.officeNumber}</p>`;
+                            this.finalCardHtml += `<p class="card-text">Office Number: <br>${cardData.officeNumber}</p>`;
                         }
                         if (cardData.hasOwnProperty("school")) {
-                            this.finalCardHtml += `<p class="card-text">School: <a href="#" class="card-link">${cardData.school}</a></p>`;
+                            this.finalCardHtml += `<p class="card-text">School: <br><a href="#" class="card-link">${cardData.school}</a></p>`;
                         }
                         this.finalCardHtml += `
                     </div>
