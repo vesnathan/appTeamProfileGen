@@ -23,12 +23,13 @@
 <a id="DESCRIPTION"></a>
 ## DESCRIPTION
 
-    This project allows a manager to add their team and generate an html page showing the teams details
+    This project allows a manager to add their team and generate an html page showing the teams details.  
+    The file "employees.html" is an example of the output.
 
 <a id="SCREENSHOTS"></a>
 ## SCREENSHOTS
 
-    NONE
+    https://youtu.be/6UDbFgXgZ68
 
 
 <a id="INSTALLATION"></a>
